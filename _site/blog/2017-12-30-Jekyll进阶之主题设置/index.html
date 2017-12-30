@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-<title>Jekyll进阶之主题设置</title>
+<title></title>
 <meta name="description" content="">
 
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png">
@@ -60,16 +60,71 @@
 				<div id="main">
           <section class="post">
     				<header class="major">
-      				<span class="date">30 Dec 2017</span>
-      				<h1>Jekyll进阶之主题设置</h1>
+      				<span class="date">31 Dec 2017</span>
+      				<h1></h1>
       				<p></p>
-<h1 id="jekyll">Jekyll进阶之主题设置</h1>
-
-
       			</header>
       			<div class="image main"><img src="" alt=""></div>
       			<p></p>
 <h1 id="jekyll">Jekyll进阶之主题设置</h1>
+<p>上篇文章已经介绍了使用Jekyll在github上搭建博客的教程，这篇是进阶之主题设置。<code class="highlighter-rouge">http://www.douban.com/note/260581630/</code></p>
+
+<p>在浏览其他博客，看到中意的jekyll主题我们可以直接Fork它，（直接Fork的话有个缺点，就是我们在fork来的基础上添加修改，但是每次的记录都会显示在你所Fork的项目里…..）所以我们还是clone下来，以免给所有使用此主题的人造成干扰。</p>
+
+<p>直接clone这个仓库到本地：
+<code class="highlighter-rouge">$ clone git://github.com/xxxx/xxxxx.git your-repo-name</code></p>
+
+<p>修改站点信息
+要将这个主题修改为自己的站点，有更多的工作要做。一部分变量可以直接在_config.yml里配置。</p>
+
+<p>一些基本信息：
+paginate: 分页数目
+title: 博客主题
+url: 博客地址(最基础的一级域名)
+feed: 订阅地址
+author: 作者信息
+aubout: 关于作者（描述性）
+follow: 社交
+indexContent: 在首页是否显示文章详情，true为显示
+imagelink: 联系我的个人图片
+style: 样式地址
+blogName: 博客标题blogDesc: 博客介绍
+favicon: favicon地址
+theme: 博客的主题
+desqus: 社会化评论的id
+copyright: 版权</p>
+
+<p>首先修改_config.yml文件中的custom.category（Map）和custom.categories（List）两组变量（以SimpleGray主题为例）务必互相对应。然后参照其中目录对应之前的变量设置更多分类索引文件夹，并修改其中的index.html，用对应分类的变量名替换之前的。完成之后就可以在文章中使用你自己定义的分类了。</p>
+
+<p>作者信息
+你应该看到_config.yml中有一部分meta变量的内容都是作者相关的信息，直接修改里面author信息块就可以了。</p>
+
+<p>其中Gravatar头像标识需要使用你自己的gravatar注册的邮箱MD5值替换，就可以在页面上显示自己的头像了。</p>
+
+<p>Disqus云评论代码
+_config.yml的author配置部分也有disqus一项，配置为你创建的站点短名称标识串即可。之后每一篇日志后就会显示评论列表了，但这个功能只有在真实线上域名的时候才会生效。</p>
+
+<p>站内搜索
+如果你需要站内搜索功能，那么最好的办法就是申请Google Custom Search(CSE)服务。
+主题中已经配置了作者站点的站内搜索为默认引擎，具体设置也在_config.yml中的author部分，gcse字段。将其中引擎用户ID字符串改为你自己的即可。</p>
+
+<p>安装Google Analytics或其他站点统计代码
+主题作者对访问量不是很敏感，所以没有安装统计代码。如果需要安装，可以在_layout/page.tpl文件中加入统计代码，之后每个生成的页面就都可以被统计到了。</p>
+
+<p>弄好直接gith push就行，等会就看到更新了，posts文件夹存的是你的日志（格式：时间-名称.MD）如果不行就先删除本地repo，然后clone，push ，ok！</p>
+
+<p>发表文章：
+个人认为不用推送且快捷的写作方法就是直接在web页面上添加MD文件，因为我可以不用切换系统直接在win7里添加。写作格式如下：</p>
+
+<hr>
+<p>layout: post
+title: 标题
+category:分类
+—
+巴拉巴拉文章内容</p>
+
+<p>End.就这么简单。
+欢迎吐槽围观   http://cxlcym.github.com/</p>
 
 
       		</section>
@@ -83,8 +138,8 @@
                */
 
               var disqus_config = function () {
-                  this.page.url = '/blog/Jekyll%E8%BF%9B%E9%98%B6%E4%B9%8B%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/';  /*Replace PAGE_URL with your page's canonical URL variable*/
-                  this.page.identifier = '/blog/Jekyll%E8%BF%9B%E9%98%B6%E4%B9%8B%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/'; /*Replace PAGE_IDENTIFIER with your page's unique identifier variable*/
+                  this.page.url = '/blog/2017-12-30-Jekyll%E8%BF%9B%E9%98%B6%E4%B9%8B%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/';  /*Replace PAGE_URL with your page's canonical URL variable*/
+                  this.page.identifier = '/blog/2017-12-30-Jekyll%E8%BF%9B%E9%98%B6%E4%B9%8B%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE/'; /*Replace PAGE_IDENTIFIER with your page's unique identifier variable*/
               };
 
               (function() {  /* dont endit below this line */
